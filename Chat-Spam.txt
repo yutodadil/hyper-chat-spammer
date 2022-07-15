@@ -1,0 +1,37 @@
+from requests import get, post
+from json import loads
+from os import system as sys
+from os import environ as env
+from colorama import Fore as f
+import random
+import string
+import threading
+
+def clear(): sys('clear')
+
+usernames = ["HyperAlternative"]
+
+adms = ["ｼョタは神"]
+
+
+
+sent = 0
+
+chats = ["We are Back!!!", "We are Back！！！", "ｼョタは神!!", "ｼョタは神！！", "ｼョタをだせええええええええぇぇぇぇぇぇぇぇえぇぇぇぇぇ！！！！", "ｼョタをだせええええええええぇぇぇぇぇぇぇぇえぇぇぇぇぇ!!!!", "強盗だ！！ ｼョタを出せ！！", "強盗だ!! ｼョタを出せ!!", "拗ねてるｼョタも出せ!!", "拗ねてるｼョタも出せ！！", "怯えてるｼョタも！！", "怯えてるｼョタも!!"]
+
+while True: 
+
+    Test2 = random.randrange(52, 255, 2)
+    Test3 = random.randrange(0, 255, 2)
+    Test = random.randrange(0, 255, 2)
+    Test5 = random.randrange(0, 255, 2)
+    randcolor = f"\x1b[38;2;{Test3};{Test5};{Test}m"
+    adm = random.choice(adms)
+    username = random.choice(usernames)
+    Test4 = random.randrange(3, 30, 2)
+    usermulti = randcolor + ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(Test4))
+    q = random.choice(chats)
+    akuwo = ""
+    if q != "": post("https://Hyper-Chat-Database.hyperalternative.repl.co/chat-post", data = {"user": f.LIGHTBLUE_EX + "(Dev) " + f.GREEN + q, "msg": f.BLUE + usermulti, "UTC": "0" + f.RESET})
+    sent += 1
+    print(randcolor + "送ったのはこの色だよ!!" + f.RESET)
